@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>vip</key>
+		<integer>1</integer>
+		<key>name</key>
+		<string>来个测试图</string>
+		<key>icon</key>
+		<string>logo.jpg</string>
+		<key>text</key>
+		<string>测试啊11很多很多字~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</string>
+	</dict>
+	<dict>
+		<key>vip</key>
+		<integer>0</integer>
+		<key>name</key>
+		<string>Item2的名字</string>
+		<key>icon</key>
+		<string>logo.jpg</string>
+		<key>text</key>
+		<string>同样的logo</string>
+	</dict>
+</array>
+</plist>
