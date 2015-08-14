@@ -39,21 +39,28 @@
         
         [self.contentView addSubview:titleLabelView];
         self.titleLabelView = titleLabelView;
+        self.titleLabelView.font = [UIFont boldSystemFontOfSize:24];
         
-        // 2.创建标签
+        //2.创建时间
+        UILabel *timeLabelView = [[UILabel alloc] init];
+        [self.contentView addSubview:timeLabelView];
+        self.timeLabelView = timeLabelView;
+        self.timeLabelView.font = [UIFont systemFontOfSize:24];
+        
+        // 3.创建标签
         UILabel *tagLabelView = [[UILabel alloc] init];
         tagLabelView.font = NJNameFont;
         // nameLabel.backgroundColor = [UIColor redColor];
         [self.contentView addSubview:tagLabelView];
         self.tagLabelView = tagLabelView;
         
-        // 3.创建作者
+        // 4.创建作者
         UILabel *authorLabelView = [[UILabel alloc] init];
         [self.contentView addSubview:authorLabelView];
         self.authorLabelView = authorLabelView;
         
         
-        // 4.创建正文
+        // 5.创建正文
         UILabel *textLabelView = [[UILabel alloc] init];
         textLabelView.font = NJTextFont;
         textLabelView.numberOfLines = 0;
@@ -85,6 +92,8 @@
     
     // 设置标题
     self.titleLabelView.text = article.title;
+    //设置时间
+    self.timeLabelView.text = article.time;
     // 设置标签
     self.tagLabelView.text = article.tag;
     // 设置作者
@@ -104,6 +113,9 @@
 //    设置头像为圆形的
 //    _iconView.layer.cornerRadius = self.iconView.frame.size.width / 2;
 //    _iconView.clipsToBounds = YES;
+    
+    //设置时间的frame
+    self.timeLabelView.frame = self.articleFrame.timeF;
     
     // 设置标签的frame
     self.tagLabelView.frame = self.articleFrame.tagF;

@@ -15,10 +15,11 @@
 @property (nonatomic, assign) CGRect tagF;
 @property (nonatomic, assign) CGRect authorF;
 @property (nonatomic, assign) CGRect textF;
+@property (nonatomic, assign) CGRect timeF;
 /**
  *  行高
  */
-@property (nonatomic, assign) CGFloat cellHeight;
-@property (nonatomic, strong) Article *article;
+@property (nonatomic, assign) CGFloat  cellHeight;
+@property (nonatomic, strong) Article  *article;
 
 @end

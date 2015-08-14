@@ -18,29 +18,44 @@
 
     _article = article;
     // 间隙
-    CGFloat padding = 30;
+    CGFloat padding = 20;
 
     // 设置标题的frame
     CGFloat titleViewX = padding;
-    CGFloat titleViewY = padding;
+    CGFloat titleViewY = 0;
     CGFloat titleViewW = 70;
     CGFloat titleViewH = 70;
     self.titleF = CGRectMake(titleViewX, titleViewY, titleViewW, titleViewH);
+    
+    
+    //设置时间的frame
+    //时间在标题右边
+    CGFloat timeViewX = CGRectGetMaxX(self.titleF) + 200;
+    CGFloat timeViewY = 0;
+    CGFloat timeViewW = 70;
+    CGFloat timeViewH = 70;
+    self.timeF = CGRectMake(timeViewX, timeViewY, timeViewW, timeViewH);
+    
+    
+    //设置作者的frame
+    CGFloat authorViewX = padding;
+    CGFloat authorViewY = padding + 6;
+//    CGSize authorSize =  [self sizeWithString:_article.author font:NJTextFont maxSize:CGSizeMake(300, MAXFLOAT)];
+    CGFloat authorViewH = 70;
+    CGFloat authorViewW = _article.author.length * 9;
+    self.authorF = CGRectMake(authorViewX, authorViewY, authorViewW, authorViewH);
    
     //设置标签的frame
-    //标签在标题右边
-    CGFloat tagViewX = padding + CGRectGetMaxX(self.titleF);
-    CGFloat tagViewY = padding;
+    //标签在作者右边
+    CGFloat tagViewX =  CGRectGetMaxX(self.authorF);
+    CGFloat tagViewY = authorViewY;
     CGFloat tagViewW = 70;
     CGFloat tagViewH = 70;
     self.tagF = CGRectMake(tagViewX, tagViewY, tagViewW, tagViewH);
     
-    //设置作者的frame
-    CGFloat authorViewX = padding + CGRectGetMaxX(self.tagF);
-    CGFloat authorViewY = padding ;
-    CGFloat authorViewH = 70;
-    CGFloat authorViewW = 70;
-    self.authorF = CGRectMake(authorViewX, authorViewY, authorViewW, authorViewH);
+    
+
+    
     
     //设置内容的frame
     // 设置正文的frame

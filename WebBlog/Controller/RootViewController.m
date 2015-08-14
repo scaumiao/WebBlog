@@ -6,25 +6,30 @@
 //  Copyright (c) 2015年 miao. All rights reserved.
 //
 
-#import "ArticleViewController.h"
+#import "RootViewController.h"
 
-@interface ArticleViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface RootViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 
 
 @end
 
-@implementation ArticleViewController
+@implementation RootViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _tableVC = [[UITableViewController alloc] init];
-    _tableVC.tableView = [[UITableView alloc] initWithFrame:self.view.frame style: UITableViewStyleGrouped];
-    _tableVC.tableView.delegate = self;
-    _tableVC.tableView.dataSource = self;
-    [self.view addSubview:_tableVC.tableView];
     
+    _headView = [[HeadView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 100)];
+    [_headView.logoBtn addTarget:self action:@selector(logoClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    [_headView.searchBtn addTarget:self action:@selector(logoClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_headView];
+    
+    _mainView = [[MainView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, self.view.frame.size.height)];
+    _mainView.tableView.delegate = self;
+    _mainView.tableView.dataSource = self;
+    
+    [self.view addSubview:_mainView];
     [self statusFrames];
 }
 
@@ -91,12 +96,28 @@
     return YES;
 }
 
+
+#pragma mark - logo点击事件
+
+-(void)logoClickAction:(id)sender
+{
+   
+    NSLog(@"%@",sender);
+   
+    
+}
+
+
+#pragma mark - cell点击事件
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"%ld",indexPath.row);
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
-
 
 @end

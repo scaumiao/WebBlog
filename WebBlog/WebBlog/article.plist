@@ -3,6 +3,8 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>time</key>
+		<string>07/24</string>
 		<key>tag</key>
 		<string>tag1</string>
 		<key>title</key>
@@ -13,10 +15,12 @@
 		<string>测试啊11很多很多字~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</string>
 	</dict>
 	<dict>
+		<key>time</key>
+		<string>07/25</string>
 		<key>text</key>
-		<string>text       2       2</string>
+		<string>teacher xie you are a bitch</string>
 		<key>author</key>
-		<string>author21</string>
+		<string>teacher xie</string>
 		<key>title</key>
 		<string>title2</string>
 		<key>tag</key>

@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "ArticleCell.h"
+#import "MainView.h"
+#import "HeadView.h"
+@interface RootViewController : UIViewController
 
-@interface ArticleViewController : UIViewController
 
+@property(strong,nonatomic)MainView *mainView;//主界面的tableview内容
 
-@property(strong,nonatomic)UITableViewController *tableVC;
-
+@property(strong,nonatomic)HeadView *headView;
 
 @property (nonatomic, strong) NSArray *statusFrames;
 
