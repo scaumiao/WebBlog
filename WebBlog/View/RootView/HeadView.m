@@ -32,7 +32,8 @@
     _logoBtn.layer.cornerRadius = _logoBtn.frame.size.width / 2;
     _logoBtn.clipsToBounds = YES;
     [self addSubview:_logoBtn];
-    
+   
+    self.backgroundColor = [UIColor whiteColor];
     
 }
 
@@ -52,13 +53,13 @@
 -(void)initButton
 {
     
-    _rssBtn = [[UIButton alloc] initWithFrame:CGRectMake(250, 52, 15, 15)];
+    _rssBtn = [[UIButton alloc] initWithFrame:CGRectMake(230, 52, 15, 15)];
     [_rssBtn setBackgroundImage:[UIImage imageNamed:@"rss.png"] forState:UIControlStateNormal];
     
-    _adminBtn = [[UIButton alloc] initWithFrame:CGRectMake(280, 52, 15, 15)];
+    _adminBtn = [[UIButton alloc] initWithFrame:CGRectMake(260, 52, 15, 15)];
     [_adminBtn setBackgroundImage:[UIImage imageNamed:@"admin.png"] forState:UIControlStateNormal];
     
-    _searchBtn = [[UIButton alloc] initWithFrame:CGRectMake(310, 52, 15, 15)];
+    _searchBtn = [[UIButton alloc] initWithFrame:CGRectMake(290, 52, 15, 15)];
     [_searchBtn setBackgroundImage:[UIImage imageNamed:@"search.png"] forState:UIControlStateNormal];
     
     [self addSubview:_rssBtn];

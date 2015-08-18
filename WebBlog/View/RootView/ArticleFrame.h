@@ -16,6 +16,7 @@
 @property (nonatomic, assign) CGRect authorF;
 @property (nonatomic, assign) CGRect textF;
 @property (nonatomic, assign) CGRect timeF;
+
 /**
  *  行高
  */

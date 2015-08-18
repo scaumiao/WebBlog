@@ -100,7 +100,7 @@
     self.authorLabelView.text = article.author;
     // 设置内容
     self.textLabelView.text = article.text;
-    
+
 }
 /**
  *  设置子控件的frame
@@ -126,6 +126,8 @@
     // 设置正文的frame
     self.textLabelView.frame = self.articleFrame.textF;
     
+    
+
 }
 
 /**

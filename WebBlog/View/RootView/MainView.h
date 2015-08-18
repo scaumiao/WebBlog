@@ -10,9 +10,7 @@
 
 @interface MainView : UIView
 
-@property (strong,nonatomic) UIButton *logoBtn;
+
 @property (strong,nonatomic) UITableView *tableView;
-@property (strong,nonatomic) UIButton *adminBtn;
-@property (strong,nonatomic) UIButton *searchBtn;
-@property (strong,nonatomic) UIButton *rssBtn;
+
 @end

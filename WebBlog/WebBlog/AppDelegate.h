@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "LeftTabViewController.h"
+#import "ArticleViewController.h"
+@class RootViewController;
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property(strong,nonatomic)RootViewController *rootVC;
 
 @end
 

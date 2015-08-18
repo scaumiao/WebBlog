@@ -15,6 +15,8 @@
 @property (nonatomic, copy) NSString     *author;// 作者
 @property (nonatomic,copy ) NSString     *tag;//标签
 @property (nonatomic,copy ) NSString     *time;//时间
+@property (nonatomic,copy ) NSString     *detail;
+
 +(id)articleWithDict:(NSDictionary *)dict;
 -(id)initWithDict:(NSDictionary *)dict;
 
