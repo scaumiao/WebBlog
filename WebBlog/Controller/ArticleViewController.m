@@ -71,7 +71,7 @@
     if (swipe.direction == UISwipeGestureRecognizerDirectionRight)
     {
         [self animationWithView:self.view WithAnimationTransition:UIViewAnimationTransitionCurlDown];
-        [_testView removeFromSuperview];
+        [_detailArticleView removeFromSuperview];
         [self.view addSubview:_mainView];
         //向右轻扫做的事情
     }
@@ -144,16 +144,21 @@
 
 
 
-#pragma mark - cell点击事件
+#pragma mark - cell点击事件,清除cell点击痕迹
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self animationWithView:self.view WithAnimationTransition:UIViewAnimationTransitionCurlUp];
     [_mainView removeFromSuperview];
     
     [self.view addSubview:_detailArticleView];
+    [self performSelector:@selector(deselect) withObject:nil afterDelay:0.5f];
     
 }
-
+#pragma mark - 清除cell选择痕迹
+-(void)deselect
+{
+    [_mainView.tableView deselectRowAtIndexPath:[_mainView.tableView indexPathForSelectedRow] animated:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -48,7 +48,7 @@
     //用来隐藏多余的线条
     [_tabTableView setTableFooterView:[[UIView alloc] init]];
     NSLog(@"%@",[array objectAtIndex:1]);
-    
+  
     
 }
 
@@ -72,7 +72,8 @@
     //cell.textLabel.text = [array objectAtIndex:(int)indexPath];
     
     cell.textLabel.text = @"测试";
-    
+    //设置选中颜色为空
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

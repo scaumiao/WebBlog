@@ -51,7 +51,7 @@
     
     cell.textLabel.text = @"首页";
     
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
 }

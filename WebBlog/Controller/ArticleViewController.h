@@ -23,7 +23,7 @@
 
 @property (nonatomic, strong) NSArray *statusFrames;
 
-@property(strong,nonatomic)TestView *testView;
+
 
 @property(strong,nonatomic)DetailArticleView *detailArticleView;
 
