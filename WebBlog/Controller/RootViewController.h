@@ -7,9 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "LeftTabViewController.h"
+#import "HeadView.h"
 @interface RootViewController : UIViewController
 
+@property(strong,nonatomic)UIViewController *articleVC;
+
+@property(strong,nonatomic)LeftTabViewController *leftTabVC;
+
+@property(strong,nonatomic)HeadView *headView;
+
+-(id)initWithArticleView:(UIViewController*) articleVC andHeadView:(HeadView *)headView;
 
 
 @end

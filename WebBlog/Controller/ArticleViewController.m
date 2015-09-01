@@ -17,23 +17,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    /*2015年08月18日20:45:06
     _tabVC = [[TabViewController alloc] init];
     [_tabVC.view setFrame:CGRectMake(0, 0, 0, 0)];
     [self.view addSubview:_tabVC.view];
+    */
     
-    _headView = [[HeadView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 100)];
-    [_headView.logoBtn addTarget:self action:@selector(logoClickAction:) forControlEvents:UIControlEventTouchUpInside];
-    [_headView.searchBtn addTarget:self action:@selector(logoClickAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:_headView];
     
+        
     _mainView = [[MainView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, self.view.frame.size.height)];
     
     _mainView.tableView.delegate = self;
     _mainView.tableView.dataSource = self;
-    
     [self.view addSubview:_mainView];
     [self statusFrames];
     
+    /*2015年08月18日20:44:43
     //测试页面跳转
     _detailArticleView = [[DetailArticleView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, self.view.frame.size.height)];
     
@@ -47,7 +48,15 @@
     [_detailArticleView addGestureRecognizer:swipeGesture];
     
     [self addChildViewController:_tabVC];
+    */
     
+    
+        _detailArticleView = [[DetailArticleView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, self.view.frame.size.height)];
+    UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeGesture:)];
+    //设置轻扫方向向右
+    swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
+    //添加手势
+    [_detailArticleView addGestureRecognizer:swipeGesture];
     
 }
 
@@ -133,33 +142,10 @@
 }
 
 
-#pragma mark - logo点击事件
-
--(void)logoClickAction:(id)sender
-{
-    
-    [self moveMe];
-    
-    
-    
-    
-    
-    
-}
-
-- (void)moveMe {
-    
-    [UIView animateWithDuration:0.5 animations:^{
-        _mainView.center = CGPointMake(_mainView.center.x + 100,_mainView.center.y);
-    }];
-    [UIView animateWithDuration:0.5 animations:^{
-        _headView.center = CGPointMake(_headView.center.x + 100,_headView.center.y);
-    }];
-}
 
 
 #pragma mark - cell点击事件
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self animationWithView:self.view WithAnimationTransition:UIViewAnimationTransitionCurlUp];
     [_mainView removeFromSuperview];

@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
+#import "RootViewController.h"
+#import "HeadView.h"
 @interface AppDelegate ()
 
 @end
@@ -22,9 +23,18 @@
     
     self.window.backgroundColor = [UIColor whiteColor];
     
+    ArticleViewController *articleVC = [[ArticleViewController alloc] init];
     
+    HeadView *headView = [[HeadView alloc]init];
     
+    _rootVC = [[RootViewController alloc] initWithArticleView:articleVC andHeadView:headView];
+
+    LeftTabViewController *leftTabVC = [[LeftTabViewController alloc] init];
+    _rootVC.leftTabVC = leftTabVC;
+    [_rootVC addChildViewController:leftTabVC];
     
+    [self.window setRootViewController:_rootVC];
+    [self.window makeKeyAndVisible];
     
     
     return YES;
