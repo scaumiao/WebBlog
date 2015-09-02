@@ -58,6 +58,25 @@
     //添加手势
     [_detailArticleView addGestureRecognizer:swipeGesture];
     
+    
+    NSURL *url = [NSURL URLWithString:@"http://localhost:8080/longai/user/getDetail?userId=1"];
+   NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSError *error = nil;
+    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+    NSLog(@"%@",weatherDic);
+//     NSError *error;
+//     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:8080/longai/picture/getPic?picId=1"]];
+//     
+//     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+//     //IOS5自带解析类NSJSONSerialization从response中解析出数据放到字典中
+//     NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+//     
+//     
+//     NSLog(@"weatherInfo：%@", weatherDic );
+
+ 
+    
 }
 
 //手势,参照http://www.cocoachina.com/ios/20140922/9711.html
@@ -199,6 +218,8 @@
         [UIView setAnimationTransition:transition forView:view cache:YES];
     }];
 }
+
+
 
 
 
