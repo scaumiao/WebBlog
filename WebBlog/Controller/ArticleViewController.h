@@ -14,6 +14,7 @@
 #import "DetailArticleView.h"
 #import "TabViewController.h"
 
+#import "DetailArticleViewController.h"
 @interface ArticleViewController : UIViewController
 
 
@@ -23,9 +24,9 @@
 
 @property (nonatomic, strong) NSArray *statusFrames;
 
+@property(strong,nonatomic)DetailArticleViewController *detailArticleVC;
 
 
-@property(strong,nonatomic)DetailArticleView *detailArticleView;
 
 @property(strong,nonatomic)TabViewController *tabVC;//导航栏控制器
 

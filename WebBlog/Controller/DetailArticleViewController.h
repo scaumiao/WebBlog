@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "DetailArticleView.h"
 @interface DetailArticleViewController : UIViewController
+
+@property(strong,nonatomic)DetailArticleView *detailArticleView;
+
+
+@property (nonatomic, strong) NSArray *statusFrames;
+
+
 
 @end

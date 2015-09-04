@@ -40,10 +40,12 @@
         self.tagLabelView.font = [UIFont systemFontOfSize:16];
         
         UILabel *detailLabelView = [[UILabel alloc]init];
+        detailLabelView.font = [UIFont systemFontOfSize:16];
+        detailLabelView.numberOfLines = 0;
         [self addSubview:detailLabelView];
-        self.detailLabelView.font = [UIFont systemFontOfSize:16];
+        self.detailLabelView = detailLabelView;
         
-        
+
     
     }
     
@@ -68,11 +70,11 @@
 {
     Article *article = self.detailArticleFrame.article;
     
-    self.titleLabelView.text = article.text;
+    self.titleLabelView.text = article.title;
     self.timeLabelView.text = article.time;
     self.authorLabelView.text = article.author;
     self.tagLabelView.text = article.tag;
-    self.detailTextLabel.text = article.detail;
+    self.detailLabelView.text = article.detail;
     
 }
 
@@ -81,9 +83,6 @@
     
     // 设置标题的frame
     self.titleLabelView.frame = self.detailArticleFrame.titleF;
-    //    设置头像为圆形的
-    //    _iconView.layer.cornerRadius = self.iconView.frame.size.width / 2;
-    //    _iconView.clipsToBounds = YES;
     
     //设置时间的frame
     self.timeLabelView.frame = self.detailArticleFrame.timeF;

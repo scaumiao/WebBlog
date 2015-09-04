@@ -50,13 +50,13 @@
     [self addChildViewController:_tabVC];
     */
     
+    _detailArticleVC = [[DetailArticleViewController alloc] init];
     
-        _detailArticleView = [[DetailArticleView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, self.view.frame.size.height)];
     UISwipeGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeGesture:)];
     //设置轻扫方向向右
     swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
     //添加手势
-    [_detailArticleView addGestureRecognizer:swipeGesture];
+    [_detailArticleVC.view addGestureRecognizer:swipeGesture];
     
     
     NSURL *url = [NSURL URLWithString:@"http://localhost:8080/longai/user/getDetail?userId=1"];
@@ -64,7 +64,9 @@
     NSError *error = nil;
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSDictionary *weatherDic = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
-    NSLog(@"%@",weatherDic);
+    [weatherDic objectForKey:@"biography"];
+    NSLog(@"%@",[weatherDic objectForKey:@"biography"]);
+    
 //     NSError *error;
 //     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:8080/longai/picture/getPic?picId=1"]];
 //     
@@ -90,7 +92,7 @@
     if (swipe.direction == UISwipeGestureRecognizerDirectionRight)
     {
         [self animationWithView:self.view WithAnimationTransition:UIViewAnimationTransitionCurlDown];
-        [_detailArticleView removeFromSuperview];
+        [_detailArticleVC.view removeFromSuperview];
         [self.view addSubview:_mainView];
         //向右轻扫做的事情
     }
@@ -169,7 +171,7 @@
     [self animationWithView:self.view WithAnimationTransition:UIViewAnimationTransitionCurlUp];
     [_mainView removeFromSuperview];
     
-    [self.view addSubview:_detailArticleView];
+    [self.view addSubview:_detailArticleVC.view];
     [self performSelector:@selector(deselect) withObject:nil afterDelay:0.5f];
     
 }

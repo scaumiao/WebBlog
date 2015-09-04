@@ -9,6 +9,7 @@
 #import "DetailArticleFrame.h"
 #define NJNameFont [UIFont systemFontOfSize:15]
 #define NJTextFont [UIFont systemFontOfSize:16]
+#define NJTitleFont [UIFont boldSystemFontOfSize:24]
 
 @implementation DetailArticleFrame
 
@@ -18,17 +19,23 @@
     
     CGFloat padding = 20;
     
+    
+
+    
     // 设置标题的frame
     CGFloat titleViewX = padding;
     CGFloat titleViewY = 0;
-    CGFloat titleViewW = 70;
-    CGFloat titleViewH = 70;
+    CGSize titlelSize =  [self sizeWithString:_article.title font:NJTitleFont maxSize:CGSizeMake(290, MAXFLOAT)];
+    CGFloat titleViewW = titlelSize.width;
+    CGFloat titleViewH = titlelSize.height;
+    NSLog(@"titleViewW:%f",titleViewW);
+     NSLog(@"titleViewH:%f",titleViewH);
     self.titleF = CGRectMake(titleViewX, titleViewY, titleViewW, titleViewH);
     
     
     //设置时间的frame
     //时间在标题右边
-    CGFloat timeViewX = CGRectGetMaxX(self.titleF) + 160;
+    CGFloat timeViewX = 250;
     CGFloat timeViewY = 0;
     CGFloat timeViewW = 70;
     CGFloat timeViewH = 70;
@@ -36,8 +43,8 @@
     
     //设置作者的frame
     CGFloat authorViewX = padding;
-    CGFloat authorViewY = padding + 6;
-    CGFloat authorViewH = 70;
+    CGFloat authorViewY = CGRectGetMaxY(self.titleF) + 6;
+    CGFloat authorViewH = 20;
     CGFloat authorViewW = _article.author.length * 9;
     self.authorF = CGRectMake(authorViewX, authorViewY, authorViewW, authorViewH);
 
@@ -45,21 +52,22 @@
     CGFloat tagViewX =  CGRectGetMaxX(self.authorF);
     CGFloat tagViewY = authorViewY;
     CGFloat tagViewW = 70;
-    CGFloat tagViewH = 70;
+    CGFloat tagViewH = 20;
     self.tagF = CGRectMake(tagViewX, tagViewY, tagViewW, tagViewH);
     
     // 设置正文的frame
     CGFloat detailX = titleViewX;
-    CGFloat detailY = CGRectGetMaxY(self.titleF) + padding;
+    CGFloat detailY = CGRectGetMaxY(self.authorF) +6;
     CGSize detailSize =  [self sizeWithString:_article.detail font:NJTextFont maxSize:CGSizeMake(290, MAXFLOAT)];
     
     CGFloat detailW = detailSize.width;
     CGFloat detailH = detailSize.height;
-    
+//    CGSize size = [self boundingRectWithSize:CGSizeMake(290, MAXFLOAT) font:NJTextFont text:_article.detail];
     self.detailF = CGRectMake(detailX, detailY, detailW , detailH);
     
     //设置每行的高度，返回给tableView的height
     self.cellHeight = CGRectGetMaxY(self.detailF) + padding;
+    
     
     
 }
@@ -83,7 +91,18 @@
     return size;
 }
 
-
+- (CGSize)boundingRectWithSize:(CGSize)size font:(UIFont *)font text:(NSString *)text
+{
+    NSDictionary *attribute = @{NSFontAttributeName: font};
+    
+    CGSize retSize = [text boundingRectWithSize:size
+                                             options:\
+                      NSStringDrawingUsesLineFragmentOrigin
+                                          attributes:attribute
+                                             context:nil].size;
+    
+    return retSize;
+}
 
 
 @end
